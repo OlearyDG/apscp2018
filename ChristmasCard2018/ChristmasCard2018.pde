@@ -4,7 +4,7 @@ import java.applet.Applet;
 PImage img;
 SnowFlake snowFlake;
 Santa santa=new Santa();
-SnowFlake[]mySnow=new SnowFlake[10];
+SnowFlake[]mySnow=new SnowFlake[100];
 final int WIDTH = 1500, HEIGHT = 1000;
 void setup(){
   size(1500, 1000);
@@ -18,7 +18,7 @@ void keyPressed() {
 System.out.println("TEST");
 }
 void draw(){
- 
+ santa.keyPressed();
   background(0);
 santa.display();
  snowFlake.display();
@@ -59,7 +59,15 @@ public class Santa{
   int l=-15,r=15;
 public Santa(){
 }
-
+void keyPressed(){
+  if(keyPressed==true){
+if(key=='a'||key=='A'){
+swidth+=l;
+}else if(key=='d'||key=='D'){
+swidth+=r;
+}
+  }
+}
    public void display(){
 
       image(img, swidth,sheight,100,100);
