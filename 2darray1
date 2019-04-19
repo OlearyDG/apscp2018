@@ -1,0 +1,160 @@
+void setup() {
+  double numRows = 3, numCols = 4;
+  double[][] mat = new double[][] { { 10, 9, 8, 7 }, { 6, 5, 4, 3 }, { 2, 1, -1, 0 } };
+  double[][] mat2 = new double[][] { { 10.4, 9.5, 8.6, 7.7 }, { 6.4, 5.3, 4.2, 3.1 }, { 2, 1, -1, 0 } };
+  double[] vals = new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+
+  TwoDLab1 test = new TwoDLab1();
+
+  // 1
+  int one = test.getTotal(mat);
+  System.out.println("1: "+one);
+
+  // 2
+  double two = test.getAverage(mat2);
+  System.out.println("2: " +two);
+
+  // 3
+  int three = test.getRowTotal(mat, 1);
+  System.out.println("3: " +three);
+
+  // 4
+  int four = test.getColumnTotal(mat, 1);
+  System.out.println("4: "+four);
+
+  // 5
+  int five = test.getHighestInRow(mat, 1);
+  System.out.println("5: " +five);
+
+  // 6
+   int six = test.getLowestInRow(mat, 1);
+  System.out.println("6: " +six);
+}
+
+/*expected results:
+ 1:54 
+ 2:4.766666666666667 
+ 3:18 
+ 4:15 
+ 5:6 
+ 6:3*/
+
+
+
+public class TwoDLab1 {
+
+  public TwoDLab1() {
+  }
+
+  // 1 - This method should accept a two-dimensional array as its argument and
+  // return the total of all the values in the array.
+  public int getTotal(double [][] mat) {
+    int total=0;
+for(int i=0;i<mat.length;i++){
+for(int j=0;j<mat[i].length;j++){
+  total+=mat[i][j];
+}
+}
+    return total;
+  }
+
+  // 2 - This method should accept a two-dimensional array as its argument and
+  // return the average of all the values in the array.
+  public double getAverage(double [][] mat) {
+    int size=0;
+for(int i=0;i<mat.length;i++){
+for(int j=0;j<mat[i].length;j++)
+size++;
+}
+
+    return getTotal(mat)/size;
+  }
+
+  // 3. This method should accept a two-dimensional array as its first argument
+  // and an integer as its second argument. The second argument should be the
+  // subscript of a row in the array. The method should return the total of the
+  // values in the specified row.
+  public int getRowTotal(double [][] mat, int a) {
+int t=0;
+for(int i=0;i<mat[a].length;i++){
+  t+=mat[a][i];
+}
+
+
+
+return t;
+  }
+
+  // 4. - This method should accept a two-dimensional array as its First argument
+  // and an integer as its second argument. The second argument should be the
+  // subscript of a column in the array. The method should return the total of the
+  // values in the specified column.
+  public int getColumnTotal(double [][] mat, int a) {
+int c=0;
+
+for(int i=0;i<mat[a].length;i++){
+  c+=mat[i][a];
+}
+
+
+
+return c;
+  }
+
+  // 5. - This method should accept a two-dimensional array as its First argument
+  // and an integer as its second argument. The second argument should be the
+  // subscript of a row in the array. The method should return the Highest value
+  // in the specified row in the array.
+  public int getHighestInRow(double [][] mat, int a) {
+double t=mat[a][0];
+for(int i=0;i<mat[a].length;i++){
+  if(mat[a][i]>t)
+  t=mat[a][i];
+}
+
+
+
+return (int)t;
+
+
+
+  }
+
+  // 6 - This method should accept a two-dimensional array as its First argument
+  // and an integer as its second argument. The second argument should be the
+  // subscript of a row in the array. The method should return the lowest value
+  // in the specified row in the array.
+  public int getLowestInRow(double [][] mat, int a) {
+
+double t=mat[a][0];
+for(int i=0;i<mat[a].length;i++){
+  if(mat[a][i]<t)
+  t=mat[a][i];
+}
+
+
+
+return (int)t;
+  }
+
+  //// print methods
+  public void printString(String[][] arr) {
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[i].length; j++) {
+        System.out.print(arr[i][j] + " ");
+      }
+      System.out.println();
+    }
+    System.out.println();
+  }
+
+  public void printInt(int[][] arr) {
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[i].length; j++) {
+        System.out.print(arr[i][j] + " ");
+      }
+      System.out.println();
+    }
+    System.out.println();
+  }
+}
